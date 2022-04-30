@@ -84,13 +84,13 @@ td.ui-widget-header {
 }
 
 .fc-daygrid {
-    width=70%;
+    width:100%;
     background-color: white!important;
     opacity: 70%
 }
 
 .fc-event-title-container{
-    opacity=90%
+    opacity:90%
 }
 
 .fc-toolbar-title{
