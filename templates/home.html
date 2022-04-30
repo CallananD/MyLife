@@ -5,31 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyLife App</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 </head>
 
 <body>
+    <div class="bgimage">
+    </div>
     <div style="margin-top: 50px;" class="ui container">
-        <h1 class="ui center aligned header">MyLife App</h1>
-        <a class="ui black button" href="{{ url_for('todo') }}">To-do List</a>
-        <a class="ui black button" href="{{ url_for('my_calendar') }}">Calendar</a>
-        <p class="ui big header">Ongoing</p>
-        <div class="ui segment">
-        {% for todo in todo_list %}
-            {% if todo.complete == False %}
-            <p class="header">{{ todo.title }}</p>
-            {% endif %}
-        {% endfor %}
+        <h1 class="center aligned header">MyLife</h1>
+        <div class="buttons">
+            <a class="ui black button" href="{{ url_for('my_calendar') }}">Calendar</a>
         </div>
-        <p class="ui big header">Completed</p>
-        <div class="ui segment">
-        {% for todo in todo_list %}
-            {%if todo.complete == True %}
-            <p class="header">{{ todo.title }}</p>
-            {% endif %}
-        {% endfor %}
+        <div class="todo-list">
+            <p class="ui big header">To-do List</p>
+            <p class="ui header">Ongoing</p>
+            <div class="ui segment" id="home">
+            {% for todo in todo_list %}
+                {% if todo.complete == False %}
+                <p class="header">{{ todo.title }}</p>
+                {% endif %}
+            {% endfor %}
+            </div>
+            <p class="ui header">Completed</p>
+            <div class="ui segment" id="home">
+            {% for todo in todo_list %}
+                {%if todo.complete == True %}
+                <p class="header">{{ todo.title }}</p>
+                {% endif %}
+            {% endfor %}
+            </div>
+            <div class="todo-button">
+                <a class="ui black button" href="{{ url_for('todo') }}">Edit To-do List</a>
+            </div>
+        </div>
     </div>
 </body>
 
