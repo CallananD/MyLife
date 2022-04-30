@@ -1,19 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyLife App</title>
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css')}}">
+    <meta name="viewport"
+    content="width=device-width",
+    initial-scale="1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet 1" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet 2" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
 </head>
+<body>
+    <div id="calendar"></div>
+    <a class="ui black button" href="{{ url_for('home') }}">Back</a>
+    <script>
+        let calendarEL = document.getElementById('calendar');
 
-<body class="month table">
-    <table border="0" cellpadding="1" cellspacing="1" class="month">
-    <tr><th colspan="7" class="month">April 2021</th></tr>
-    <tr><th class="mon">Mon</th><th class="tue">Tue</th><th class="wed">Wed</th><th class="thu">Thu</th><th class="fri">Fri</th><th class="sat">Sat</th><th class="sun">Sun</th></tr>
-    <tr><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td><td class="thu">1</td><td class="fri">2</td><td class="sat">3</td><td class="sun">4</td></tr>
-    <tr><td class="mon">5</td><td class="tue">6</td><td class="wed">7</td><td class="thu">8</td><td class="fri">9</td><td class="sat">10</td><td class="sun">11</td></tr>
-    <tr><td class="mon">12</td><td class="tue">13</td><td class="wed">14</td><td class="thu">15</td><td class="fri">16</td><td class="sat">17</td><td class="sun">18</td></tr>
-    <tr><td class="mon">19</td><td class="tue">20</td><td class="wed">21</td><td class="thu">22</td><td class="fri">23</td><td class="sat">24</td><td class="sun">25</td></tr>
-    <tr><td class="mon">26</td><td class="tue">27</td><td class="wed">28</td><td class="thu">29</td><td class="fri">30</td><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td></tr>
-    </table>
+        let calendar = new FullCalendar.Calendar(calendarEL, {
+            events : [
+                {% for event in events %}
+                {
+                    title : '{{event.todo}}',
+                    start : '{{event.deadline}}',
+                },
+                {% endfor %}
+            ]
+        });
+
+        calendar.render();
+    </script>
 </body>
+</html>

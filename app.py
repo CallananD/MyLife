@@ -1,4 +1,5 @@
 import calendar
+from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
@@ -14,6 +15,7 @@ class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100))
     complete = db.Column(db.Boolean)
+    deadline = db.Column(db.Date)
 
 db.create_all()
 
@@ -30,7 +32,12 @@ def todo():
 @app.post("/add")
 def add():
     title = request.form.get("title")
-    new_todo = Todo(title=title, complete=False)
+    deadline = request.form.get("deadline")
+    if len(deadline) > 0:
+        new_todo = Todo(title=title, complete=False,
+                    deadline=datetime(int(deadline[0:4]),int(deadline[5:7]),int(deadline[8:10])))
+    else:
+        new_todo = Todo(title=title, complete=False, deadline=None)
     db.session.add(new_todo)
     db.session.commit()
     return redirect(url_for("todo"))
@@ -49,6 +56,11 @@ def delete(todo_id):
     db.session.commit()
     return redirect(url_for("todo"))
 
+events = [{'todo': 'Test events','date':'2022-04-30'}]
 @app.get("/calendar")
 def my_calendar():
-    return render_template("calendar.html")
+    events = []
+    for event in db.session.query(Todo).all():
+        if event.complete == False:
+            events.append({'todo':event.title,'deadline':event.deadline})
+    return render_template("calendar.html", events=events)
