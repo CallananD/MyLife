@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
 </head>
 
-<body>
+<body class="home-body">
     <div class="bgimage">
     </div>
     <h1 class="center aligned header">MyLife</h1>
@@ -36,7 +36,7 @@
                     {% endfor %}
                 </div>
                 <div class="todo-button">
-                    <a class="ui black button" href="{{ url_for('todo') }}">Edit To-do List</a>
+                    <a class="ui black button" id="edit-todo" href="{{ url_for('todo') }}">Edit To-do List</a>
                 </div>
             </div>
         </div>

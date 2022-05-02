@@ -26,7 +26,7 @@ body:before {
     margin-top: -10px
 }
 
-.back {
+.back-button {
     font: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-weight: 700;
     font-size: 14px;
@@ -41,21 +41,23 @@ body:before {
     background-image: none;
     -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, .15) inset;
     box-shadow: 0 0 0 0 rgba(34, 36, 38, .15) inset;
+    position: absolute;
+    margin-top: 5px;
 }
 
-.back.active {
+.back-button.active {
     background-color: #343637;
     color: #fff;
     text-shadow: none
 }
 
-.back.hover {
+.back-button.hover {
     background-color: #27292a;
     color: #fff;
     text-shadow: none
 }
 
-.back.focus {
+.back-button.focus {
     background-color: #2f3032;
     color: #fff;
     text-shadow: none
@@ -88,7 +90,7 @@ td.ui-widget-header {
 .fc-daygrid {
     width: 100%;
     background-color: white !important;
-    opacity: 70%
+    opacity: 90%
 }
 
 .fc-event-title-container {
@@ -103,4 +105,8 @@ td.ui-widget-header {
     background-color: black !important;
     color: white !important;
     opacity: 100% !important;
+}
+
+.fc-button-primary {
+    font-weight: 700 !important;
 }
