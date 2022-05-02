@@ -15,28 +15,25 @@
     <div class="bgimage">
     </div>
     <h1 class="center aligned header">MyLife</h1>
-            <div class="buttons">
-                <a class="ui black button" href="{{ url_for('my_calendar') }}">Calendar</a>
-            </div>
     <div style="width:100%; overflow:hidden;" class="upper-div">
         <div style="margin-top: 79px;width:25%; float:left;" class="ui-container" id="todo-box">
             <div class="todo-list">
                 <p class="ui big header">To-do List</p>
                 <p class="ui header">Ongoing</p>
                 <div class="ui segment" id="home">
-                {% for todo in todo_list %}
+                    {% for todo in todo_list %}
                     {% if todo.complete == False %}
                     <p class="header">{{ todo.title }}</p>
                     {% endif %}
-                {% endfor %}
+                    {% endfor %}
                 </div>
                 <p class="ui header">Completed</p>
                 <div class="ui segment" id="home">
-                {% for todo in todo_list %}
+                    {% for todo in todo_list %}
                     {%if todo.complete == True %}
                     <p class="header">{{ todo.title }}</p>
                     {% endif %}
-                {% endfor %}
+                    {% endfor %}
                 </div>
                 <div class="todo-button">
                     <a class="ui black button" href="{{ url_for('todo') }}">Edit To-do List</a>
@@ -44,18 +41,19 @@
             </div>
         </div>
         <div style="margin-left:500px; margin-right:10px;" id="calendar">
+            <a class="ui black button" id="calendar-button" href="{{ url_for('my_calendar') }}">Edit Calendar</a>
             <script>
                 let calendarEL = document.getElementById('calendar');
 
                 let calendar = new FullCalendar.Calendar(calendarEL, {
                     height: 1000,
-                    events : [
+                    events: [
                         {% for event in events %}
                         {
-                            title : '{{event.todo}}',
-                            start : '{{event.deadline}}',
-                        },
-                        {% endfor %}
+                        title: '{{event.todo}}',
+                        start: '{{event.deadline}}',
+                    },
+                    {% endfor %}
                     ]
                 });
 

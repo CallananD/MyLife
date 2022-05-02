@@ -1,9 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin);
 
 * {
-    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-    -webkit-box-sizing:inherit;
-    box-sizing:inherit
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit
 }
 
 body {
@@ -22,42 +22,44 @@ body:before {
     background-size: 1920px;
     filter: blur(2px);
     z-index: -9;
-    margin-top: -40px
+    margin-left: -10px;
+    margin-top: -10px
 }
 
 .back {
-    font: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-weight: 700;
-    font-size:14px;
-    line-height:1.4285em;
-    background-color:black;
-    color:#fff;
+    font-size: 14px;
+    line-height: 1.4285em;
+    background-color: black;
+    color: #fff;
     text-decoration: none;
     display: inline-block;
     padding: 8px 16px;
     border-radius: 5px;
-    text-shadow:none;
-    background-image:none;
-    -webkit-box-shadow:0 0 0 0 rgba(34,36,38,.15) inset;
-    box-shadow:0 0 0 0 rgba(34,36,38,.15) inset;
+    text-shadow: none;
+    background-image: none;
+    -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, .15) inset;
+    box-shadow: 0 0 0 0 rgba(34, 36, 38, .15) inset;
 }
 
 .back.active {
-    background-color:#343637;
-    color:#fff;
-    text-shadow:none
+    background-color: #343637;
+    color: #fff;
+    text-shadow: none
 }
-    
+
 .back.hover {
-    background-color:#27292a;
-    color:#fff;
-    text-shadow:none
+    background-color: #27292a;
+    color: #fff;
+    text-shadow: none
 }
-    
+
 .back.focus {
-    background-color:#2f3032;
-    color:#fff;
-    text-shadow:none}
+    background-color: #2f3032;
+    color: #fff;
+    text-shadow: none
+}
 
 .fc-toolbar-title {
     padding-left: 875px;
@@ -79,25 +81,26 @@ td.ui-widget-header {
 }
 
 .fc-daygrid-day-number {
-    font-size: 20px!important;
+    font-size: 20px !important;
     font-weight: 600;
 }
 
 .fc-daygrid {
-    width:100%;
-    background-color: white!important;
+    width: 100%;
+    background-color: white !important;
     opacity: 70%
 }
 
-.fc-event-title-container{
-    opacity:90%
+.fc-event-title-container {
+    opacity: 90%
 }
 
-.fc-toolbar-title{
-    font-size: 40px!important;
+.fc-toolbar-title {
+    font-size: 40px !important;
 }
-.fc-button{
-    background-color:black!important;
-    color: white!important;
-    opacity: 100%!important;
+
+.fc-button {
+    background-color: black !important;
+    color: white !important;
+    opacity: 100% !important;
 }

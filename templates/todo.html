@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <a class="ui black button" href="{{ url_for('home') }}">Back</a>
+    <a class="ui black button" id="todo-back" href="{{ url_for('home') }}">Back</a>
     <div style="margin-top: 50px;" class="ui container">
         <h1 class="ui center aligned header">To-Do List</h1>
         <form class="ui form" action="/add" method="post">
@@ -24,25 +24,25 @@
 
         <hr>
         {% for todo in todo_list %}
-            {% if todo.complete == False %}
-            <div class="ui segment">
-                <p class="ui big header">{{ todo.title }}</p>
+        {% if todo.complete == False %}
+        <div class="ui segment">
+            <p class="ui big header">{{ todo.title }}</p>
 
-                <a class="ui blue button" href="/update/{{ todo.id }}">Update</a>
-                <a class="ui red button" href="/delete/{{ todo.id }}">Delete</a>
-            </div>
-            {% endif %}
+            <a class="ui blue button" href="/update/{{ todo.id }}">Update</a>
+            <a class="ui red button" href="/delete/{{ todo.id }}">Delete</a>
+        </div>
+        {% endif %}
         {% endfor %}
         <p class="ui big header">Completed</p>
         {% for todo in todo_list %}
-            {%if todo.complete == True %}
-            <div class="ui segment">
-                <p class="ui big header">{{ todo.title }} <span class=tick>&#10003</span></p>
+        {%if todo.complete == True %}
+        <div class="ui segment">
+            <p class="ui big header">{{ todo.title }} <span class=tick>&#10003</span></p>
 
-                <a class="ui blue button" href="/update/{{ todo.id }}">Update</a>
-                <a class="ui red button" href="/delete/{{ todo.id }}">Delete</a>
-            </div>
-            {% endif %}
+            <a class="ui blue button" href="/update/{{ todo.id }}">Update</a>
+            <a class="ui red button" href="/delete/{{ todo.id }}">Delete</a>
+        </div>
+        {% endif %}
         {% endfor %}
     </div>
 </body>

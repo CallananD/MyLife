@@ -24,11 +24,11 @@ todo_db.create_all()
 @app.get("/")
 def home():
     todo_list = todo_db.session.query(Todo).all()
-    events = []
+    deadlines = []
     for event in todo_list:
         if event.complete == False:
-            events.append({"todo": event.title, "deadline": event.deadline})
-    return render_template("home.html", todo_list=todo_list, events=events)
+            deadlines.append({"todo": event.title, "deadline": event.deadline})
+    return render_template("home.html", todo_list=todo_list, events=deadlines)
 
 
 @app.get("/todo")
